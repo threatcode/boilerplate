@@ -5,7 +5,7 @@ RUN echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" >> /
 	&& apt-get update && apt-get install -y --allow-unauthenticated git \
 																	nmap \
 																	hydra \
-																	dnsen \
+																	dnsen
                                 
 
 # Cr3dOv3r script
