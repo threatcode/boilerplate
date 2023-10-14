@@ -6,11 +6,7 @@ RUN echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" >> /
 																	nmap \
 																	hydra \
 																	dnsen \
-                                  python3 \
-                                  wget \
-                                  git  \
-                                  sqlmap
-
+                                
 
 # Cr3dOv3r script
 
