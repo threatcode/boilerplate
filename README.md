@@ -5,7 +5,7 @@ version of the Threatcode Linux Rolling Distribution. There are no tools added
 to this image, so you will need to install them yourself. 
 
 For details about Threatcode Linux metapackages, check
-<https://www.threatcode.org/blog/threatcode-linux-metapackages/>.
+<https://www.threatcode.github.io/blog/threatcode-linux-metapackages/>.
 
 # Weekly updates
 
@@ -22,8 +22,8 @@ docker run --rm -it threatcodelinux/threatcode-rolling
 ```
 
 For more documentation, refer to:
-* <https://www.threatcode.org/docs/containers/using-threatcode-podman-images/>
-* <https://www.threatcode.org/docs/containers/using-threatcode-docker-images/>
+* <https://www.threatcode.github.io/docs/containers/using-threatcode-podman-images/>
+* <https://www.threatcode.github.io/docs/containers/using-threatcode-docker-images/>
 
 # How to build those images
 
