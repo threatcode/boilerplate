@@ -7,8 +7,8 @@ IMAGE=$1
 ARCHITECTURE=$2
 
 # Retrieve variables from former docker-build.sh
-# NB: extra images are based on kali-rolling
-BASE=kali-rolling
+# NB: extra images are based on threatcode-rolling
+BASE=threatcode-rolling
 . ./"$BASE-$ARCHITECTURE".conf
 
 podman build --squash \

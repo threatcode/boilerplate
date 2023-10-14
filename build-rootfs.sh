@@ -5,7 +5,7 @@ set -u
 
 image=$1
 architecture=$2
-mirror=${3:-http://http.kali.org/kali}
+mirror=${3:-http://http.threatcode.org/threatcode}
 
 rootfsDir=rootfs-$image-$architecture
 tarball=$image-$architecture.tar.gz
@@ -17,11 +17,11 @@ rootfs_chroot() {
 }
 
 case $image in
-    kali-dev|kali-rolling)
+    threatcode-dev|threatcode-rolling)
         distro=$image
         ;;
-    kali-last-release)
-        distro=kali-last-snapshot
+    threatcode-last-release)
+        distro=threatcode-last-snapshot
         ;;
     *)
         echo "ERROR: unsupported image '$image'" >&2
@@ -35,9 +35,9 @@ if [ ! -e /usr/share/debootstrap/scripts/"$distro" ]; then
     exit 1
 fi
 
-if [ ! -e /usr/share/keyrings/kali-archive-keyring.gpg ]; then
-    echo "ERROR: you need /usr/share/keyrings/kali-archive-keyring.gpg" >&2
-    echo "ERROR: install kali-archive-keyring" >&2
+if [ ! -e /usr/share/keyrings/threatcode-archive-keyring.gpg ]; then
+    echo "ERROR: you need /usr/share/keyrings/threatcode-archive-keyring.gpg" >&2
+    echo "ERROR: install threatcode-archive-keyring" >&2
     exit 1
 fi
 
@@ -45,7 +45,7 @@ rm -rf "$rootfsDir" "$tarball"
 
 ret=0
 debootstrap --variant=minbase --components=main,contrib,non-free,non-free-firmware \
-    --arch="$architecture" --include=kali-archive-keyring \
+    --arch="$architecture" --include=threatcode-archive-keyring \
     "$distro" "$rootfsDir" "$mirror" || ret=$?
 if [ $ret != 0 ]; then
     [ -e "$rootfsDir"/debootstrap/debootstrap.log ] && \
@@ -53,7 +53,7 @@ if [ $ret != 0 ]; then
     exit $ret
 fi
 
-rootfs_chroot apt-get -y --no-install-recommends install kali-defaults
+rootfs_chroot apt-get -y --no-install-recommends install threatcode-defaults
 
 rootfs_chroot apt-get clean
 
@@ -94,6 +94,6 @@ rmdir "$rootfsDir/run/mount" 2>/dev/null || :
 echo "Creating $tarball"
 tar -C "$rootfsDir" --exclude "./dev/**" -pczf "$tarball" .
 
-if [ "$image" = "kali-last-release" ]; then
+if [ "$image" = "threatcode-last-release" ]; then
     (. "$rootfsDir"/etc/os-release && echo "$VERSION") > "$versionFile"
 fi

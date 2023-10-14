@@ -14,8 +14,8 @@ if [ "${GITLAB_CI:-}" = true ]; then
     BUILD_DATE="$CI_JOB_STARTED_AT"
     VCS_REF="$CI_COMMIT_SHORT_SHA"
 else
-    REGISTRY_IMAGE="localhost/kalilinux"
-    PROJECT_URL="https://gitlab.com/kalilinux/build-scripts/kali-docker"
+    REGISTRY_IMAGE="localhost/threatcodelinux"
+    PROJECT_URL="https://gitlab.com/threatcodelinux/build-scripts/threatcode-docker"
     BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     VCS_REF=$(git rev-parse --short HEAD)
 fi
@@ -24,7 +24,7 @@ BUILD_VERSION=$(date -u +"%Y.%m.%d")
 REGISTRY="${REGISTRY_IMAGE%%/*}"
 
 case "$IMAGE" in
-    kali-last-release)
+    threatcode-last-release)
         VERSION=$(cat "$VERSIONFILE")
         RELEASE_DESCRIPTION="$VERSION"
         ;;

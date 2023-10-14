@@ -1,7 +1,7 @@
 ARG REGISTRY_IMAGE
 ARG TAG
-FROM $REGISTRY_IMAGE/kali-rolling:$TAG
+FROM $REGISTRY_IMAGE/threatcode-rolling:$TAG
 
-RUN echo "deb http://http.kali.org/kali kali-experimental main contrib non-free non-free-firmware" >/etc/apt/sources.list.d/kali-experimental.list
+RUN echo "deb http://http.threatcode.org/threatcode threatcode-experimental main contrib non-free non-free-firmware" >/etc/apt/sources.list.d/threatcode-experimental.list
 
 CMD ["bash"]

@@ -1,29 +1,29 @@
-# Official Kali Linux Docker
+# Official Threatcode Linux Docker
 
-This Kali Linux Docker image provides a minimal base install of the latest
-version of the Kali Linux Rolling Distribution. There are no tools added
+This Threatcode Linux Docker image provides a minimal base install of the latest
+version of the Threatcode Linux Rolling Distribution. There are no tools added
 to this image, so you will need to install them yourself. 
 
-For details about Kali Linux metapackages, check
-<https://www.kali.org/blog/kali-linux-metapackages/>.
+For details about Threatcode Linux metapackages, check
+<https://www.threatcode.org/blog/threatcode-linux-metapackages/>.
 
 # Weekly updates
 
 Docker images are updated weekly and pushed to the Docker Hub at
-<https://hub.docker.com/u/kalilinux>.
+<https://hub.docker.com/u/threatcodelinux>.
 
 You can run those images with either Docker or Podman, at your convenience:
 
 ```
 # Podman
-podman run --rm -it kali-rolling
+podman run --rm -it threatcode-rolling
 # Docker
-docker run --rm -it kalilinux/kali-rolling
+docker run --rm -it threatcodelinux/threatcode-rolling
 ```
 
 For more documentation, refer to:
-* <https://www.kali.org/docs/containers/using-kali-podman-images/>
-* <https://www.kali.org/docs/containers/using-kali-docker-images/>
+* <https://www.threatcode.org/docs/containers/using-threatcode-podman-images/>
+* <https://www.threatcode.org/docs/containers/using-threatcode-docker-images/>
 
 # How to build those images
 

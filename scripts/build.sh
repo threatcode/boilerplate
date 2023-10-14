@@ -57,12 +57,12 @@ for image in $IMAGES; do
         echo "Building image $image/$arch"
         echo "========================================"
         if [ $base_image -eq 1 ]; then
-            $SUDO ./build-rootfs.sh "$image" "$arch"
-            ./docker-build.sh "$image" "$arch"
+            $SUDO ./scripts/build-rootfs.sh "$image" "$arch"
+            ./scripts/docker-build.sh "$image" "$arch"
         else
-            ./docker-build-extra.sh "$image" "$arch"
+            ./scripts/docker-build-extra.sh "$image" "$arch"
         fi
-        ./docker-test.sh  "$image" "$arch"
+        ./scripts/docker-test.sh  "$image" "$arch"
     done
 done
 
@@ -78,5 +78,5 @@ for image in $(printf "%s\n" $ORDER | tac); do
 done
 
 for image in $IMAGES; do
-    ./docker-publish.sh "$image" "$ARCHS"
+    ./scripts/docker-publish.sh "$image" "$ARCHS"
 done
