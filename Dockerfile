@@ -27,10 +27,10 @@ RUN apk add --no-cache git py3-pip && git clone https://github.com/s0md3v/Hash-B
 WORKDIR Hash-Buster
 
 # Lighter alternative to installing make to run makefile
-COPY hash.py /usr/local/bin/
-RUN chmod +x /usr/local/bin/hash.py
-
-RUN pip3 install requests
+RUN cd Hash-Buster \
+ cp hash.py /usr/local/bin/ \
+ chmod +x /usr/local/bin/hash.py \
+ pip3 install requests
 
 ENTRYPOINT [ "hash.py" ]
 CMD [ "-h" ]
